@@ -95,8 +95,6 @@ function game()
                 break;
             case "Stay":
                 dturn();
-                dturn();
-                dturn();
                 comp();
                 break;
             case "Restart":
@@ -117,8 +115,10 @@ function deal(){
 function dturn(){
     $hh = $_SESSION['hhand'];
     $hs = sumHand($hh);
-    if (($hs < 17)&&($hs < 21)){
+    while ($hs < 17){
     array_push($_SESSION['hhand'], deal());
+    $hh = $_SESSION['hhand'];
+    $hs = sumHand($hh);
     }
 }
 
